@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+ 
+    <title>zadanie</title>
+    <style>
+        label{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<form action="#">
+
+<label for="num1">num1<input type="number" id="num1" name="num1"></label>
+<label for="num2">num2<input type="number" id="num2" name="num2"></label>
+<label> działanie:
+<select name="dzialania" id="dzialania"> 
+
+<option value="dod">dodawanie</option>
+
+<option value="odej">odejmowanie</option>
+
+<option value="mnoz">mnożenie</option>
+
+<option value="dziel">dzielenie</option>
+
+
+</select>
+</label>
+
+<label for="sub"><input type="submit" value="licz" id="sub"></label>
+
+</form>    
+<p></p>
+<script>
+
+const but=document.getElementById(`sub`)
+but.addEventListener(`click`, function(evt)
+{
+    evt.preventDefault();
+    const num1 = document.getElementById(`num1`).value
+    const num2 = document.getElementById(`num2`).value
+    const dzial= document.getElementById(`dzialania`).value
+    const display=document.querySelector(`p`)
+
+   
+   if ((dzial=='dod')){
+    display.innerHTML= `wynik dodawania ` +  num1 + ` i ` + num2 + ` to: ` + (Number(num1) + Number(num2));
+   }
+
+   if ((dzial=='odej')){
+    display.innerHTML= `wynik odejmowania ` +  num1 + ` i ` + num2 + ` to: ` + (Number(num1) - Number(num2));
+   }
+
+   if ((dzial=='mnoz')){
+    display.innerHTML= `wynik mnozenia ` +  num1 + ` i ` + num2 + ` to: ` + (Number(num1) * Number(num2));
+   }
+
+   if ((dzial=='dziel')){
+    if (Number (num2)==0){
+        display.innerText=`nie dziel przez 0`
+       }else{
+    display.innerHTML= `wynik dzielenia ` +  num1 + ` i ` + num2 + ` to: ` + (Number(num1) / Number(num2));
+       }
+   }
+
+
+
+
+
+
+}
+)
+</script>
+
+
+
+</body>
+
+</html>
